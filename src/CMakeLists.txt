@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 2.8)
+PROJECT (elettra C)
+ADD_EXECUTABLE(elettra elettra.c elettra_encrypt.c elettra_seek.c elettra_utils.c elettra_zlib.c elettra_check.c)
+INCLUDE (CheckLibraryExists)
+FIND_LIBRARY (MCRYPT mcrypt)
+FIND_LIBRARY (Z z)
+FIND_LIBRARY (MHASH mhash)
+TARGET_LINK_LIBRARIES (elettra ${MHASH} ${MCRYPT} ${Z})
